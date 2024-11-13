@@ -1,0 +1,30 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+    padding: 50px;
+}
+h1 {
+    font-size: 96px;
+    color: #d32f2f;
+    margin: 0;
+}
+h2 {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #666;
+}
+p {
+    font-size: 16px;
+    color: #777;
+}
+a {
+    text-decoration: none;
+    color: #007aff;
+    font-weight: 500;
+}
+a:hover {
+    color: #0056b3;
+}

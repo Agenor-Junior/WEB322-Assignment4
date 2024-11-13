@@ -1,0 +1,22 @@
+[
+    {
+       "id":1,
+       "category":"Fruits"
+    },
+    {
+       "id":2,
+       "category":"vegetables"
+    },
+    {
+       "id":3,
+       "category":"Dairy"
+    },
+    {
+       "id":4,
+       "category":"Bakery"
+    },
+    {
+       "id":5,
+       "category":"Meat"
+    }
+ ]
