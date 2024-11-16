@@ -6,8 +6,8 @@ I declare that this assignment is my own work in accordance with Seneca  Academi
 Name: Agenor Dionizio da Silva Junior
 Student ID: 138121223
 Date: 2024/11/09
-render Web App URL: https://web322-app-xyco.onrender.com/
-GitHub Repository URL: https://github.com/chermont04/web322-app
+render Web App URL: https://replit.com/join/xccqnzsfzf-agenordsjunior1
+GitHub Repository URL: https://github.com/Agenor-Junior/WEB322-Assignment4.git
 
 ********************************************************************************/ 
 
