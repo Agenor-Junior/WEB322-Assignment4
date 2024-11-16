@@ -1,117 +1,90 @@
-/*********************************************************************************
+const fs = require("fs").promises; // Using fs.promises API for cleaner async/await
 
-WEB322 – Assignment 02
-I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
-No part of this assignment has been copied manually or electronically from any other source 
-(including 3rd party web sites) or distributed to other students.
+let items = [];
+let categories = [];
 
-Name: Agenor Dionizio da Silva Junior
-Date: Oct 31, 2024
-Student ID: 138121223
-Replit Web App URL: 
-GitHub Repository URL: https://github.com/Agenor-Junior/web322-app.git
-
-********************************************************************************/
-
-const fs = require("fs");
-
-let itemsArray = [];
-let categoriesArray = [];
-
-const pathToItems = "./data/items.json";
-const pathToCat = "./data/categories.json";
-
-function initialize() {
-    return new Promise((resolve, reject) => {
-        fs.readFile(pathToItems, "utf8", (err, jsonString) => {
-            if (err) {
-                return reject("Unable to read ITEMS file");
-            }
-
-            try {
-                // Parse the items file
-                itemsArray = JSON.parse(jsonString);
-
-                fs.readFile(pathToCat, "utf-8", (err, jsonString) => {
-                    if (err) {
-                        return reject("Unable to read CATEGORIES file");
-                    }
-                    try {
-                        // Parse the categories file
-                        categoriesArray = JSON.parse(jsonString);
-                        resolve("Initialization successful!");
-                    } catch (error) {
-                        reject("Unable to parse CATEGORIES file");
-                    }
-                });
-            } catch (error) {
-                reject("Unable to parse ITEMS file");
-            }
-        });
-    });
-}
-
-function getAllItems() {
-    return new Promise((resolve, reject) => {
-        itemsArray.length === 0 ? reject("no results returned") : resolve(itemsArray);
-    });
-}
-
-function getPublishedItems() {
-    return new Promise((resolve, reject) => {
-        const publishedItems = itemsArray.filter((item) => item.published);
-        publishedItems.length === 0 ? reject("no results returned") : resolve(publishedItems);
-    });
-}
-
-function getCategories() {
-    return new Promise((resolve, reject) => {
-        categoriesArray.length === 0 ? reject("no results returned") : resolve(categoriesArray);
-    });
-}
-
-function addItem(itemData) {
-    return new Promise((resolve, reject) => {
-        itemData.published = itemData.published ? true : false;
-        itemData.id = itemsArray.length + 1;
-        itemsArray.push(itemData);
-        resolve(itemData);
-    });
-}
-
-// Step 1: Function to get items by category
-function getItemsByCategory(category) {
-    return new Promise((resolve, reject) => {
-        const filteredItems = itemsArray.filter(item => item.category === category);
-        filteredItems.length ? resolve(filteredItems) : reject("no results returned");
-    });
-}
-
-// Step 2: Function to get items by minimum date
-function getItemsByMinDate(minDateStr) {
-    return new Promise((resolve, reject) => {
-        const minDate = new Date(minDateStr);
-        const filteredItems = itemsArray.filter(item => new Date(item.postDate) >= minDate);
-        filteredItems.length ? resolve(filteredItems) : reject("no results returned");
-    });
-}
-
-// Step 3: Function to get item by ID
-function getItemById(id) {
-    return new Promise((resolve, reject) => {
-        const item = itemsArray.find(item => item.id === parseInt(id));
-        item ? resolve(item) : reject("no result returned");
-    });
-}
-
-// Exporting the functions
 module.exports = {
-    initialize,
-    getAllItems,
-    getPublishedItems,
-    getCategories,
-    addItem,
-    getItemsByCategory,
-    getItemsByMinDate,
-    getItemById
+     initialize: async function() {
+        try {
+            const itemsData = await fs.readFile('./data/items.json', 'utf8');
+            items = JSON.parse(itemsData);
+            console.log("Items loaded:", items); // Debugging line
+            const categoriesData = await fs.readFile('./data/categories.json', 'utf8');
+            categories = JSON.parse(categoriesData);
+        } catch (err) {
+            throw new Error("Unable to initialize data: " + err.message);
+        }
+    },
+
+    addItem: async function (itemData) {
+        try {
+            const currentDate = new Date();
+            const postDate = currentDate.toISOString().split("T")[0];
+            itemData.postDate = postDate;
+            
+            // Generate a unique ID for the new item
+            itemData.id = items.length > 0 ? Math.max(...items.map(item => item.id)) + 1 : 1; // Auto-incrementing ID
+
+            items.push(itemData);
+
+            // Write the updated items array to the file
+            await fs.writeFile("./data/items.json", JSON.stringify(items, null, 2));
+
+            return itemData;
+        } catch (err) {
+            throw new Error("Error saving the new item: " + err.message);
+        }
+    },
+
+    getAllItems: async function() {
+        if (items.length === 0) {
+            throw new Error("No items available");
+        }
+        return items;
+    },
+
+    getItemsByCategory: async function(category) {
+        const filteredItems = items.filter(item => item.category === category);
+        if (filteredItems.length === 0) {
+            throw new Error(`No items found for category: ${category}`);
+        }
+        return filteredItems;
+    },
+
+    getItemsByMinDate: async function(minDateStr) {
+        const filteredItems = items.filter(item => new Date(item.postDate) >= new Date(minDateStr));
+        if (filteredItems.length === 0) {
+            throw new Error(`No items found with date after ${minDateStr}`);
+        }
+        return filteredItems;
+    },
+
+    getItemById: async function(id) {
+        const item = items.find(item => item.id === Number(id)); // Convert id to a number
+        if (!item) {
+            throw new Error(`No item found with id: ${id}`);
+        }
+        return item;
+    },
+    
+
+    getPublishedItems: async function() {
+        const publishedItems = items.filter(item => item.published === true);
+        if (publishedItems.length === 0) {
+            throw new Error("No published items found");
+        }
+        return publishedItems;
+    },
+
+    getPublishedItemsByCategory: async function(category) {
+        return items.filter(item => item.category === Number(category) && item.published === true);
+    },
+    
+
+    getCategories: async function() {
+        if (categories.length === 0) {
+            throw new Error("No categories found");
+        }
+        return categories;
+    }
 };

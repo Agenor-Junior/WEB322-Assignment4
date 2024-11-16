@@ -1,502 +1,102 @@
 [
-  {
-    "id": 1,
-    "category": "Fruits",
-    "postDate": "2023-05-14",
-    "featureImage": "/img/lawnmower.jpg",
-    "price": 2.5,
-    "title": "Fresh Apples",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-    "published": true
-  },
-  {
-    "id": 2,
-    "category": "Fruits",
-    "postDate": "2023-05-15",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Juicy Oranges",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies.",
-    "published": true
-  },
-  {
-    "id": 3,
-    "category": "Fruits",
-    "postDate": "2023-05-16",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Bananas",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi.",
-    "published": true
-  },
-  {
-    "id": 4,
-    "category": "Fruits",
-    "postDate": "2023-05-17",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Strawberries",
-    "body": "Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 5,
-    "category": "Fruits",
-    "postDate": "2023-05-18",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Blueberries",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 6,
-    "category": "Fruits",
-    "postDate": "2023-05-19",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Mangoes",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 7,
-    "category": "Fruits",
-    "postDate": "2023-05-20",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Pineapples",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 8,
-    "category": "Fruits",
-    "postDate": "2023-05-21",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Grapes",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi.",
-    "published": true
-  },
-  {
-    "id": 9,
-    "category": "Fruits",
-    "postDate": "2023-05-22",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Watermelons",
-    "body": "Curabitur vel convallis augue.",
-    "published": true
-  },
-  {
-    "id": 10,
-    "category": "Fruits",
-    "postDate": "2023-05-23",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Peaches",
-    "body": "Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 11,
-    "category": "Vegetables",
-    "postDate": "2023-05-14",
-    "featureImage": "/img/gamingconsole.jpg",
-    "price": 1.8,
-    "title": "Carrots",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies.",
-    "published": true
-  },
-  {
-    "id": 12,
-    "category": "Vegetables",
-    "postDate": "2023-05-15",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Tomatoes",
-    "body": "Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada.",
-    "published": true
-  },
-  {
-    "id": 13,
-    "category": "Vegetables",
-    "postDate": "2023-05-16",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Broccoli",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 14,
-    "category": "Vegetables",
-    "postDate": "2023-05-17",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Spinach",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 15,
-    "category": "Vegetables",
-    "postDate": "2023-05-18",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Lettuce",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 16,
-    "category": "Vegetables",
-    "postDate": "2023-05-19",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Potatoes",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 17,
-    "category": "Vegetables",
-    "postDate": "2023-05-20",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Onions",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 18,
-    "category": "Vegetables",
-    "postDate": "2023-05-21",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Bell Peppers",
-    "body": "Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 19,
-    "category": "Vegetables",
-    "postDate": "2023-05-22",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Zucchini",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 20,
-    "category": "Vegetables",
-    "postDate": "2023-05-23",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 1.8,
-    "title": "Cucumbers",
-    "body": "Curabitur vel convallis augue.",
-    "published": true
-  },
-  {
-    "id": 21,
-    "category": "Dairy",
-    "postDate": "2023-05-14",
-    "featureImage": "/img/clothing.jpg",
-    "price": 3.0,
-    "title": "Whole Milk",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 22,
-    "category": "Dairy",
-    "postDate": "2023-05-15",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Cheddar Cheese",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 23,
-    "category": "Dairy",
-    "postDate": "2023-05-16",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Yogurt",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 24,
-    "category": "Dairy",
-    "postDate": "2023-05-17",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Butter",
-    "body": "Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 25,
-    "category": "Dairy",
-    "postDate": "2023-05-18",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Cream Cheese",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 26,
-    "category": "Dairy",
-    "postDate": "2023-05-19",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Greek Yogurt",
-    "body": "Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 27,
-    "category": "Dairy",
-    "postDate": "2023-05-20",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Sour Cream",
-    "body": "Curabitur vel convallis augue.",
-    "published": true
-  },
-  {
-    "id": 28,
-    "category": "Dairy",
-    "postDate": "2023-05-21",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Mozzarella Cheese",
-    "body": "Vestibulum efficitur blandit ultricies.",
-    "published": true
-  },
-  {
-    "id": 29,
-    "category": "Dairy",
-    "postDate": "2023-05-22",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Ricotta Cheese",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 30,
-    "category": "Dairy",
-    "postDate": "2023-05-23",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 3.0,
-    "title": "Cottage Cheese",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada.",
-    "published": true
-  },
-  {
-    "id": 31,
-    "category": "Bakery",
-    "postDate": "2023-05-14",
-    "featureImage": "/img/yogamat.jpg",
-    "price": 2.5,
-    "title": "Whole Grain Bread",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 32,
-    "category": "Bakery",
-    "postDate": "2023-05-15",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Croissants",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 33,
-    "category": "Bakery",
-    "postDate": "2023-05-16",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Bagels",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 34,
-    "category": "Bakery",
-    "postDate": "2023-05-17",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Muffins",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 35,
-    "category": "Bakery",
-    "postDate": "2023-05-18",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Baguette",
-    "body": "Curabitur vel convallis augue. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 36,
-    "category": "Bakery",
-    "postDate": "2023-05-19",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Sourdough Bread",
-    "body": "Vestibulum efficitur blandit ultricies.",
-    "published": true
-  },
-  {
-    "id": 37,
-    "category": "Bakery",
-    "postDate": "2023-05-20",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Rye Bread",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 38,
-    "category": "Bakery",
-    "postDate": "2023-05-21",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Focaccia",
-    "body": "Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 39,
-    "category": "Bakery",
-    "postDate": "2023-05-22",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Pita Bread",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 40,
-    "category": "Bakery",
-    "postDate": "2023-05-23",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 2.5,
-    "title": "Cinnamon Rolls",
-    "body": "Curabitur vel convallis augue.",
-    "published": true
-  },
-  {
-    "id": 41,
-    "category": "Meat",
-    "postDate": "2023-05-14",
-    "featureImage": "/img/dogleash.jpg",
-    "price": 5.0,
-    "title": "Chicken Breast",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 42,
-    "category": "Meat",
-    "postDate": "2023-05-15",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Ground Beef",
-    "body": "Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 43,
-    "category": "Meat",
-    "postDate": "2023-05-16",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Pork Chops",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 44,
-    "category": "Meat",
-    "postDate": "2023-05-17",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Salmon Fillet",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 45,
-    "category": "Meat",
-    "postDate": "2023-05-18",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Turkey Breast",
-    "body": "Curabitur vel convallis augue. Sed tempus mollis orci id facilisis.",
-    "published": true
-  },
-  {
-    "id": 46,
-    "category": "Meat",
-    "postDate": "2023-05-19",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Lamb Chops",
-    "body": "Vestibulum efficitur blandit ultricies.",
-    "published": true
-  },
-  {
-    "id": 47,
-    "category": "Meat",
-    "postDate": "2023-05-20",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Bacon",
-    "body": "Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis.",
-    "published": true
-  },
-  {
-    "id": 48,
-    "category": "Meat",
-    "postDate": "2023-05-21",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Sausage",
-    "body": "Cras convallis fringilla sem efficitur congue.",
-    "published": true
-  },
-  {
-    "id": 49,
-    "category": "Meat",
-    "postDate": "2023-05-22",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Steak",
-    "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "published": true
-  },
-  {
-    "id": 50,
-    "category": "Meat",
-    "postDate": "2023-05-23",
-    "featureImage": "https://dummyimage.com/200x200/000/fff",
-    "price": 5.0,
-    "title": "Pork Ribs",
-    "body": "Curabitur vel convallis augue.",
-    "published": true
-  }
-]
+    {
+       "id":1,
+       "category":1,
+       "postDate":"2023-05-14",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":9.99,
+       "title":"Lawnmower",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":2,
+       "category":1,
+       "postDate":"2023-05-15",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":19.99,
+       "title":"Weber BBQ",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":3,
+       "category":2,
+       "postDate":"2023-05-16",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":439.99,
+       "title":"PS5",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":4,
+       "category":2,
+       "postDate":"2023-05-17",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":459.99,
+       "title":"XBOX",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":5,
+       "category":3,
+       "postDate":"2023-05-18",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":39.99,
+       "title":"TShirt",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":6,
+       "category":3,
+       "postDate":"2023-05-19",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":29.99,
+       "title":"Shorts",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":7,
+       "category":4,
+       "postDate":"2023-05-20",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":19.99,
+       "title":"Baseball",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":8,
+       "category":4,
+       "postDate":"2023-05-21",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":99.99,
+       "title":"Soccer Ball",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":9,
+       "category":5,
+       "postDate":"2023-05-16",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":99.99,
+       "title":"Dog Food",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    },
+    {
+       "id":10,
+       "category":5,
+       "postDate":"2023-05-16",
+       "featureImage":"https://dummyimage.com/200x200/000/fff",
+       "price":9.99,
+       "title":"Fish Food",
+       "body":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras convallis fringilla sem efficitur congue. Vestibulum efficitur blandit ultricies. Sed tempus mollis orci id facilisis. Aliquam placerat, ipsum eget egestas malesuada, neque nunc scelerisque felis, ut egestas turpis augue ut nisi. Curabitur vel convallis augue.",
+       "published":true
+    }
+ ] 

@@ -1,30 +1,25 @@
 /*********************************************************************************
 
-WEB322 – Assignment 02
-I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
-No part of this assignment has been copied manually or electronically from any other source 
-(including 3rd party web sites) or distributed to other students.
+WEB322 – Assignment 04
+I declare that this assignment is my own work in accordance with Seneca  Academic Policy.  No part *  of this assignment has been copied manually or electronically from any other source (including 3rd party web sites) or distributed to other students.
 
 Name: Agenor Dionizio da Silva Junior
 Student ID: 138121223
-Date: Oct 31, 2024
-Replit Web App URL: 
-GitHub Repository URL: https://github.com/Agenor-Junior/web322-app.git
+Date: 2024/11/09
+render Web App URL: https://web322-app-xyco.onrender.com/
+GitHub Repository URL: https://github.com/chermont04/web322-app
 
-********************************************************************************/
+********************************************************************************/ 
 
-const express = require("express");
+
+const express = require('express');
+const storeService = require('./store-service');
 const multer = require("multer");
-const cloudinary = require("cloudinary").v2;
-const streamifier = require("streamifier");
-const path = require("path");
-const storeService = require("./store-service");
-const app = express();
+const cloudinary = require('cloudinary').v2;
+const streamifier = require('streamifier');
+const exphbs = require('express-handlebars');
+const Handlebars = require('handlebars');  // Import Handlebars directly
 
-// Port configuration
-const HTTP_PORT = process.env.PORT || 8080;
-
-// Cloudinary configuration
 cloudinary.config({
     cloud_name: "dzpqolir8",
     api_key: "276645628487539",
@@ -33,122 +28,172 @@ cloudinary.config({
 });
 
 const upload = multer();
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-// Middleware for static files
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-// Routes
+app.use(function(req, res, next) {
+    let route = req.path.substring(1);
+    app.locals.activeRoute = "/" + (isNaN(route.split('/')[1]) ? route.replace(/\/(?!.*)/, "") : route.replace(/\/(.*)/, ""));
+    app.locals.viewingCategory = req.query.category;
+    next();
+});
 
-// Home route
+// Registering helpers
+app.engine('.hbs', exphbs.engine({
+    extname: '.hbs',
+    helpers: {
+        navLink: function(url, options) {
+            return '<li class="nav-item"><a ' + 
+                   (url == app.locals.activeRoute ? ' class="nav-link active" ' : ' class="nav-link" ') + 
+                   'href="' + url + '">' + options.fn(this) + "</a></li>";
+        },
+        equal: function(lvalue, rvalue, options) {
+            if (arguments.length < 3)
+                throw new Error("Handlebars Helper equal needs 2 parameters");
+            return (lvalue != rvalue) ? options.inverse(this) : options.fn(this);
+        },
+        safeHTML: function (context) {
+            return new Handlebars.SafeString(context);  // Use SafeString from imported Handlebars
+        }
+    }
+}));
+
+app.set('view engine', '.hbs');
+app.set("views", __dirname + "/views");
+
+// Define routes
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/about.html"));
+    res.redirect("/Shop");
 });
 
-// About route
-app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/about.html"));
+app.get('/About', (req, res) => {
+    res.render('about');
 });
 
-// Home route (redundant but keeping as per original code)
-app.get("/home", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/home.html"));
+app.get('/items/add', (req, res) => {
+    res.render('addItem');
 });
 
-// Shop route
-app.get("/shop", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/shop.html"));
-});
+app.get("/Shop", async (req, res) => {
+    let viewData = {};
+    try {
+        let items = req.query.category ? 
+            await storeService.getPublishedItemsByCategory(req.query.category) : 
+            await storeService.getPublishedItems();
 
-// Add item form
-app.get("/add", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/addItem.html"));
-});
-
-app.get("/items", (req, res) => {
-  res.sendFile(path.join(__dirname, "/views/items.html"));
-});
-
-
-// Shop items as JSON
-app.get("/api/shop", (req, res) => {
-    storeService.getPublishedItems()
-        .then((data) => res.json(data))
-        .catch((err) => res.json({ message: err }));
-});
-
-// List all items
-app.get("/api/items", (req, res) => {
-    storeService.getAllItems()
-        .then((data) => res.json(data))
-        .catch((err) => res.json({ message: err }));
-});
-
-// Categories list
-app.get("/categories", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/categories.html"));
-});
-
-app.get("/api/categories", (req, res) => {
-    storeService.getCategories()
-        .then((data) => res.json(data))
-        .catch((err) => res.json({ message: err }));
-});
-
-// Route to handle adding a new item with image upload
-app.post("/items/add", upload.single("featureImage"), async (req, res) => {
-    let imageUrl = "";
+        items.sort((a, b) => new Date(b.itemDate) - new Date(a.itemDate));
+        viewData.items = items;
+        viewData.item = items[0];
+    } catch (err) {
+        viewData.message = "no results";
+    }
 
     try {
-        // Upload image if file exists
-        if (req.file) {
-            const streamUpload = (req) => {
-                return new Promise((resolve, reject) => {
-                    const stream = cloudinary.uploader.upload_stream((error, result) => {
-                        if (error) {
-                            reject(error);
-                        } else {
-                            resolve(result);
-                        }
-                    });
-                    streamifier.createReadStream(req.file.buffer).pipe(stream);
-                });
-            };
-
-            const uploadResult = await streamUpload(req);
-            imageUrl = uploadResult.url;
-        }
-
-        // Set item properties
-        req.body.featureImage = imageUrl;
-        req.body.published = req.body.published ? true : false;
-
-        // Add the item to the store
-        await storeService.addItem(req.body);
-
-        // Redirect to items page
-        res.redirect("/items");
+        viewData.categories = await storeService.getCategories();
     } catch (err) {
-        console.error("Erro durante o processo de adição de item:", err);
+        viewData.categoriesMessage = "no results";
+    }
 
-        if (!res.headersSent) {
-            res.status(500).send("Erro ao adicionar item.");
+    res.render("shop", { data: viewData });
+});
+
+app.get('/Shop/:id', async (req, res) => {
+    // Declare an object to store properties for the view
+    let viewData = {};
+    try {
+        // Obtain the item by "id" and store in viewData
+        viewData.item = await storeService.getItemById(req.params.id);
+        // If there's a "category" query, filter the returned items by category
+        if (req.query.category) {
+            viewData.items = await storeService.getPublishedItemsByCategory(req.query.category);
+        } else {
+            viewData.items = await storeService.getPublishedItems();
         }
+        // Sort items by itemDate in descending order
+        viewData.items.sort((a, b) => new Date(b.itemDate) - new Date(a.itemDate));
+        // Obtain the full list of categories
+        viewData.categories = await storeService.getCategories();
+    } catch (err) {
+        console.error(err);
+        viewData.message = "No results found";
+    }
+    // Render the "shop" view with all of the data (viewData)
+    res.render('shop', { data: viewData });
+});
+
+
+app.get('/Items', (req, res) => {
+    storeService.getAllItems()
+        .then(data => {
+            res.render('items', { items: data });
+        })
+        .catch(err => {
+            res.render('items', { message: "no results" });
+        });
+});
+
+app.get('/Categories', (req, res) => {
+    storeService.getCategories()
+        .then(data => {
+            res.render("categories", { categories: data });
+        })
+        .catch(() => {
+            res.render("categories", { message: "No categories available" });
+        });
+});
+
+app.get('/item/:value', (req, res) => {
+    storeService.getItemById(req.params.value)
+        .then(item => res.json(item))
+        .catch(err => res.status(404).json({ message: err }));
+});
+
+app.post('/items/add', upload.single('featureImage'), (req, res) => {
+    if (req.file) {
+        let streamUpload = (req) => {
+            return new Promise((resolve, reject) => {
+                let stream = cloudinary.uploader.upload_stream((error, result) => {
+                    if (result) resolve(result);
+                    else reject(error);
+                });
+                streamifier.createReadStream(req.file.buffer).pipe(stream);
+            });
+        };
+
+        async function upload(req) {
+            let result = await streamUpload(req);
+            return result;
+        }
+
+        upload(req).then(uploaded => processItem(uploaded.url))
+            .catch(err => {
+                console.error("Cloudinary upload failed:", err);
+                res.status(500).send("Image upload failed");
+            });
+    } else {
+        processItem("");
+    }
+
+    function processItem(imageUrl) {
+        req.body.featureImage = imageUrl;
+        storeService.addItem(req.body)
+            .then(() => res.redirect('/Items'))
+            .catch(err => res.status(500).send("Failed to add item"));
     }
 });
 
-// Custom 404 page for unmatched routes
-app.use((req, res) => {
-    res.status(404).sendFile(path.join(__dirname, "/views/404.html"));
-});
-
-// Start the server
 storeService.initialize()
     .then(() => {
-        app.listen(HTTP_PORT, () => {
-            console.log(`Express http server listening on port: ${HTTP_PORT}`);
+        app.listen(PORT, () => {
+            console.log(`Express http server listening on port ${PORT}`);
         });
     })
-    .catch((err) => {
-        console.log("Failed to initialize data:", err);
+    .catch(err => {
+        console.log('Failed to initialize the store service:', err);
     });
 
+app.use((req, res) => {
+    res.status(404).render("404");
+});
